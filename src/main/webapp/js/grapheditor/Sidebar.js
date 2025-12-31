@@ -1093,7 +1093,14 @@ Sidebar.prototype.addSearchPalette = function(expand)
 
 	var input = document.createElement('input');
 	input.setAttribute('id', 'geOmniSearch');
-	input.setAttribute('placeholder', mxResources.get('typeSlashToSearch'));
+	// Enhanced placeholder to make generate/search capabilities more discoverable
+	var placeholderText = mxResources.get('typeSlashToSearch') || 'Type / to search';
+	if (Editor.enableAi && typeof mxMermaidToDrawio !== 'undefined' && window.isMermaidEnabled)
+	{
+		// Add hint about generation capability when AI features are enabled
+		placeholderText = mxResources.get('searchOrGenerate', null, 'Search or describe diagram to generate');
+	}
+	input.setAttribute('placeholder', placeholderText);
 	input.setAttribute('type', 'text');
 	inner.appendChild(input);
 
