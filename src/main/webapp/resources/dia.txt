@@ -696,6 +696,7 @@ scratchpad=Scratchpad
 scrollbars=Scrollbars
 search=Search
 searchShapes=Search Shapes
+searchOrGenerate=Search or describe diagram to generate
 selectAll=Select All
 selectionOnly=Selection Only
 selectCard=Select Card
