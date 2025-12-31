@@ -1095,10 +1095,14 @@ Sidebar.prototype.addSearchPalette = function(expand)
 	input.setAttribute('id', 'geOmniSearch');
 	// Enhanced placeholder to make generate/search capabilities more discoverable
 	var placeholderText = mxResources.get('typeSlashToSearch') || 'Type / to search';
-	if (Editor.enableAi && typeof mxMermaidToDrawio !== 'undefined' && window.isMermaidEnabled)
+	if (Editor.enableAi && typeof mxMermaidToDrawio !== 'undefined' && window.isMermaidEnabled === true)
 	{
 		// Add hint about generation capability when AI features are enabled
-		placeholderText = mxResources.get('searchOrGenerate', null, 'Search or describe diagram to generate');
+		var generateText = mxResources.get('searchOrGenerate');
+		if (generateText != null)
+		{
+			placeholderText = generateText;
+		}
 	}
 	input.setAttribute('placeholder', placeholderText);
 	input.setAttribute('type', 'text');
